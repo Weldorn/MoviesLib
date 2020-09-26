@@ -29,9 +29,7 @@ class MovieTableViewCell: UITableViewCell {
     //MARK: - Methods
     
     func configureWithMovie (_ movie: Movie) {
-        if let image = movie.image {
-            imageViewPoster?.image = UIImage(named: "\(image)small")
-        }
+        imageViewPoster.image = movie.poster
         labelTitle.text = movie.title
         labelRating.text = movie.ratingFormatted
         labelSummary.text = movie.summary

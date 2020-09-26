@@ -12,6 +12,15 @@ final class MovieFormViewController: UIViewController {
     
     //MARK: - Properties
     var movie: Movie?
+    var selectedCategories: Set<Category> = [] {
+        didSet {
+            if selectedCategories.count > 0 {
+                labelCategories.text = selectedCategories.compactMap({$0.name}).sorted().joined(separator: " | ")
+            } else {
+                labelCategories.text = "Categorias"
+            }
+        }
+    }
     
     //MARK: - IBOutlets
     @IBOutlet weak var textFieldTitle: UITextField!
@@ -40,7 +49,22 @@ final class MovieFormViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let categoriesViewController = segue.destination as? CategoriesTableViewController {
+            categoriesViewController.selectedCategories = selectedCategories
+            categoriesViewController.delegate = self
+        }
+    }
+    
     //MARK: - Methods
+    
+    private func selectPictureFrom(_ sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = sourceType
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
     private func setupView() {
         if let movie = movie {
             title = "Edição de filme"
@@ -49,8 +73,9 @@ final class MovieFormViewController: UIViewController {
             textFieldDuration.text = movie.duration
             textViewSummary.text = movie.summary
             buttonSave.setTitle("Alterar", for: .normal)
-            if let data = movie.image {
-                imageViewPoster.image = UIImage(data: data)
+            imageViewPoster.image = movie.poster
+            if let categories = movie.categories as? Set<Category>, categories.count > 0 {
+                selectedCategories = categories
             }
         }
     }
@@ -69,6 +94,29 @@ final class MovieFormViewController: UIViewController {
     
     //MARK: - IBActions
     @IBAction func selectImage(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Selecionar poster", message: "De onde você deseja escolher o pôster", preferredStyle: .alert)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default) { (_) in
+                self.selectPictureFrom(.camera)
+            }
+            alert.addAction(cameraAction)
+        }
+        
+        let libraryAction = UIAlertAction(title: "Biblioteca de fotos", style: .default) { (_) in
+            self.selectPictureFrom(.photoLibrary)
+        }
+        alert.addAction(libraryAction)
+        
+        let photosAction = UIAlertAction(title: "Album de fotos", style: .default) { (_) in
+            self.selectPictureFrom(.savedPhotosAlbum)
+        }
+        alert.addAction(photosAction)
+        
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func save(_ sender: UIButton) {
@@ -80,7 +128,8 @@ final class MovieFormViewController: UIViewController {
         movie?.duration = textFieldDuration.text
         let rating = Double(textFieldRating.text!) ?? 0
         movie?.rating = rating
-        movie?.image = imageViewPoster.image?.jpegData(compressionQuality: 0.85)
+        movie?.image = imageViewPoster.image?.jpegData(compressionQuality: 0.9)
+        movie?.categories = selectedCategories as NSSet?
         
         view.endEditing(true)
         do {
@@ -89,5 +138,20 @@ final class MovieFormViewController: UIViewController {
         } catch {
             print(error)
         }
+    }
+}
+
+extension MovieFormViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            imageViewPoster.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension MovieFormViewController: CategoriesDelegate {
+    func setSelectedCategories(_ categories: Set<Category>) {
+        selectedCategories = categories
     }
 }

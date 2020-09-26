@@ -15,6 +15,7 @@
 		785933B8251F639B00230FF7 /* MoviesLib.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 785933B6251F639B00230FF7 /* MoviesLib.xcdatamodeld */; };
 		785933BD251F83DD00230FF7 /* MovieFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785933BC251F83DD00230FF7 /* MovieFormViewController.swift */; };
 		785933C3251F92C100230FF7 /* UIViewController+context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785933C2251F92C100230FF7 /* UIViewController+context.swift */; };
+		785933C8251FB13A00230FF7 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785933C7251FB13A00230FF7 /* CategoriesTableViewController.swift */; };
 		78B2416C251D715E0071FD65 /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B2416B251D715E0071FD65 /* MoviesTableViewController.swift */; };
 		78B24172251D7A9A0071FD65 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B24171251D7A9A0071FD65 /* MovieTableViewCell.swift */; };
 		78B24176251D7D810071FD65 /* Movie+RatingFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B24175251D7D810071FD65 /* Movie+RatingFormatted.swift */; };
@@ -31,6 +32,7 @@
 		785933B7251F639B00230FF7 /* MoviesLib.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoviesLib.xcdatamodel; sourceTree = "<group>"; };
 		785933BC251F83DD00230FF7 /* MovieFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFormViewController.swift; sourceTree = "<group>"; };
 		785933C2251F92C100230FF7 /* UIViewController+context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+context.swift"; sourceTree = "<group>"; };
+		785933C7251FB13A00230FF7 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		78B2416B251D715E0071FD65 /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
 		78B24171251D7A9A0071FD65 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		78B24175251D7D810071FD65 /* Movie+RatingFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+RatingFormatted.swift"; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		7855635F251AB2FC00E58899 /* MoviesLib */ = {
 			isa = PBXGroup;
 			children = (
+				785933C5251FB11000230FF7 /* Categories */,
 				785933BA251F83A100230FF7 /* MovieForm */,
 				78B24169251D71230071FD65 /* MovieListing */,
 				788D5587251D554E0034CA3A /* Files */,
@@ -90,6 +93,22 @@
 			isa = PBXGroup;
 			children = (
 				785933BC251F83DD00230FF7 /* MovieFormViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		785933C5251FB11000230FF7 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				785933C6251FB11B00230FF7 /* Controller */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		785933C6251FB11B00230FF7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				785933C7251FB13A00230FF7 /* CategoriesTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -255,6 +274,7 @@
 				785933BD251F83DD00230FF7 /* MovieFormViewController.swift in Sources */,
 				78B24176251D7D810071FD65 /* Movie+RatingFormatted.swift in Sources */,
 				78556365251AB2FC00E58899 /* MovieViewController.swift in Sources */,
+				785933C8251FB13A00230FF7 /* CategoriesTableViewController.swift in Sources */,
 				785933C3251F92C100230FF7 /* UIViewController+context.swift in Sources */,
 				78556361251AB2FC00E58899 /* AppDelegate.swift in Sources */,
 			);

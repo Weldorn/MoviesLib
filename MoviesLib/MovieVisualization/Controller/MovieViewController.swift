@@ -29,9 +29,9 @@ final class MovieViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //imageViewPoster.image = UIImage(named: movie.image ?? "placeholder")
+        imageViewPoster.image = movie.poster
         labelTitle.text = movie.title
-//        labelCategories.text = movie.categories
+        labelCategories.text = (movie.categories as? Set<Category>)?.compactMap({$0.name}).sorted().joined(separator: " | ")
         labelDuration.text = movie.duration
         labelRating.text = movie.ratingFormatted
         textViewSummary.text = movie.summary
