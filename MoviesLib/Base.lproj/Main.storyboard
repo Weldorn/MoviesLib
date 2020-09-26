@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VlG-Tx-5zR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Az7-Mm-EHw">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -139,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2934" y="395"/>
+            <point key="canvasLocation" x="2862" y="579"/>
         </scene>
         <!--Filmes-->
         <scene sceneID="sAU-2a-IAJ">
@@ -235,10 +235,11 @@
             </objects>
             <point key="canvasLocation" x="1948" y="119.70443349753695"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Filmes-->
         <scene sceneID="br4-Yk-Mts">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VlG-Tx-5zR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Filmes" image="movies" id="rLd-4l-XIO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="HB2-dj-dfj">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -251,7 +252,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hby-7G-Jgz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1005.6" y="119.70443349753695"/>
+            <point key="canvasLocation" x="1006" y="43"/>
         </scene>
         <!--Cadastro de Filmes-->
         <scene sceneID="fAd-e9-R5Z">
@@ -262,7 +263,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvP-do-THG">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3OV-kS-mtF" userLabel="Container">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="557.66666666666663"/>
@@ -411,7 +412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVD-to-czi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2933.5999999999999" y="-310.34482758620692"/>
+            <point key="canvasLocation" x="2863" y="-75"/>
         </scene>
         <!--Categorias-->
         <scene sceneID="jFB-m7-wU0">
@@ -457,12 +458,73 @@
             </objects>
             <point key="canvasLocation" x="3735" y="-308"/>
         </scene>
+        <!--Maps-->
+        <scene sceneID="D6x-X8-vOf">
+            <objects>
+                <viewController id="yW3-MC-mWc" customClass="MapViewController" customModule="MoviesLib" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D03-EM-BNt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PWM-wA-qLa">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" placeholder="o que voce quer procurar" translatesAutoresizingMaskIntoConstraints="NO" id="Vza-q8-yji">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SVG-od-R4x"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MvS-9q-6rX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PWM-wA-qLa" firstAttribute="top" secondItem="Vza-q8-yji" secondAttribute="bottom" id="5Sf-9F-lU7"/>
+                            <constraint firstItem="Vza-q8-yji" firstAttribute="leading" secondItem="MvS-9q-6rX" secondAttribute="leading" id="9Ma-Uc-HC9"/>
+                            <constraint firstItem="Vza-q8-yji" firstAttribute="trailing" secondItem="MvS-9q-6rX" secondAttribute="trailing" id="Cvg-KX-pId"/>
+                            <constraint firstItem="PWM-wA-qLa" firstAttribute="trailing" secondItem="MvS-9q-6rX" secondAttribute="trailing" id="NJj-Uq-aVp"/>
+                            <constraint firstItem="PWM-wA-qLa" firstAttribute="bottom" secondItem="MvS-9q-6rX" secondAttribute="bottom" id="Yra-JD-c1A"/>
+                            <constraint firstItem="Vza-q8-yji" firstAttribute="top" secondItem="MvS-9q-6rX" secondAttribute="top" id="cXs-ZT-hun"/>
+                            <constraint firstItem="PWM-wA-qLa" firstAttribute="leading" secondItem="MvS-9q-6rX" secondAttribute="leading" id="xDw-ne-rTM"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Maps" image="map" catalog="system" id="WuY-ko-Lx6"/>
+                    <connections>
+                        <outlet property="mapView" destination="PWM-wA-qLa" id="FBA-Zo-adC"/>
+                        <outlet property="searchBar" destination="Vza-q8-yji" id="OWF-9O-dxT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bdF-QU-ams" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1005.6" y="758.86699507389164"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="OJT-Ok-2dZ">
+            <objects>
+                <tabBarController id="Az7-Mm-EHw" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9qP-1W-wLK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="yW3-MC-mWc" kind="relationship" relationship="viewControllers" id="kXR-1v-55M"/>
+                        <segue destination="VlG-Tx-5zR" kind="relationship" relationship="viewControllers" id="16E-s2-ISG"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhK-rx-YAV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-252" y="296"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="s3j-88-MbQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gradient" width="600" height="120"/>
+        <image name="map" catalog="system" width="128" height="110"/>
+        <image name="movies" width="22" height="22"/>
         <image name="play" width="53" height="53"/>
         <namedColor name="Main">
             <color red="1" green="0.76470588235294112" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
