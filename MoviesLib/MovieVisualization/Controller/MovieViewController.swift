@@ -29,12 +29,18 @@ final class MovieViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        imageViewPoster.image = UIImage(named: movie.image ?? "placeholder")
+        //imageViewPoster.image = UIImage(named: movie.image ?? "placeholder")
         labelTitle.text = movie.title
-        labelCategories.text = movie.categories
+//        labelCategories.text = movie.categories
         labelDuration.text = movie.duration
         labelRating.text = movie.ratingFormatted
         textViewSummary.text = movie.summary
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? MovieFormViewController {
+            vc.movie = movie
+        }
     }
     
     //MARK: - Methods
