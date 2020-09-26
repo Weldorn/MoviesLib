@@ -499,6 +499,78 @@
             </objects>
             <point key="canvasLocation" x="1005.6" y="758.86699507389164"/>
         </scene>
+        <!--Configuracoes-->
+        <scene sceneID="IIZ-UA-icG">
+            <objects>
+                <viewController id="ZvW-Df-F1E" customClass="SettingsViewController" customModule="MoviesLib" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f1a-Un-qNn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Autoplay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16s-k1-H6B">
+                                <rect key="frame" x="39" y="82" width="67" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8lK-q0-JJV">
+                                <rect key="frame" x="280" y="82" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="autoPlayChanged:" destination="ZvW-Df-F1E" eventType="valueChanged" id="1aV-Km-Yer"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Esquema de cores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ON3-BV-D4L">
+                                <rect key="frame" x="39" y="143" width="141" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bou-md-aDg">
+                                <rect key="frame" x="39" y="172" width="288" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Branco"/>
+                                    <segment title="Laranja"/>
+                                    <segment title="Azul"/>
+                                </segments>
+                                <connections>
+                                    <action selector="colorChanged:" destination="ZvW-Df-F1E" eventType="valueChanged" id="T8h-i0-D7m"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categoria favorita de filmes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uom-Nx-Fgg">
+                                <rect key="frame" x="39" y="236" width="209" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Fq-BB-NMq">
+                                <rect key="frame" x="39" y="265" width="288" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="categoryChanged:" destination="ZvW-Df-F1E" eventType="editingDidEnd" id="EgM-XI-p0N"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="g7W-Df-KVQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Configuracoes" image="settings" id="tU3-vz-idd"/>
+                    <connections>
+                        <outlet property="segmentControlColors" destination="bou-md-aDg" id="MZ8-p1-FBf"/>
+                        <outlet property="switchAutoPlay" destination="8lK-q0-JJV" id="mN3-Ms-3RO"/>
+                        <outlet property="textFieldCategory" destination="9Fq-BB-NMq" id="MJV-qH-ZFQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IOk-0C-Pzp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1018.4" y="1427.5862068965519"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="OJT-Ok-2dZ">
             <objects>
@@ -511,6 +583,7 @@
                     <connections>
                         <segue destination="yW3-MC-mWc" kind="relationship" relationship="viewControllers" id="kXR-1v-55M"/>
                         <segue destination="VlG-Tx-5zR" kind="relationship" relationship="viewControllers" id="16E-s2-ISG"/>
+                        <segue destination="ZvW-Df-F1E" kind="relationship" relationship="viewControllers" id="g5x-AH-hnt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhK-rx-YAV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -526,6 +599,7 @@
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="movies" width="22" height="22"/>
         <image name="play" width="53" height="53"/>
+        <image name="settings" width="22" height="22"/>
         <namedColor name="Main">
             <color red="1" green="0.76470588235294112" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
